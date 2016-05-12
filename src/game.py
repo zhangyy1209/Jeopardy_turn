@@ -1,8 +1,10 @@
+import json
+
 class Question():
-  def __init__(self, id, content, answer, score, choices, choice_states, state=0):
+  def __init__(self, qid, content, answer, score, choices, choice_states, state=0):
     """
     Question class:
-      id: question id, int
+      qid: question id, int
       content: string
       answer: choice id, int
       score: int
@@ -11,7 +13,7 @@ class Question():
       state: int, 0: initial, 1: in answer, 2: finished
     """
 
-    self.id = id
+    self.qid = qid
     self.content = content
     self.answer = answer
     self.score = score
@@ -22,7 +24,7 @@ class Question():
 
   def show(self):
     """
-    Output a jason file that contains the contents of the question.
+    Output a json file that contains the contents of the question.
     """
 
     pass
@@ -52,13 +54,15 @@ class QuestionList():
     """
     self.questions = {}
     self.question_file = question_file
+    self.load_questions(question_file)
 
 
   def load_questions(self):
     """
     Load questions.
     """
-    pass
+    with open(question_file) as quesitons:
+      question_tmp = json.load(quesitons)
 
 
   def find(self, question_id):
