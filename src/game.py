@@ -127,7 +127,13 @@ class PlayerList():
 
 
   def load_players(self):
-    pass
+    with open(self.player_file) as players:
+        players = json.load(players)
+    
+    for p in players:
+        self.players[p['uid']] = Player(id = p['uid'], name = p['name'], score = p['score'])
+
+    print "Players loaded."
 
 
   def update_player(self, player, score):
