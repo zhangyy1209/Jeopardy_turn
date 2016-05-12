@@ -134,6 +134,10 @@ class PlayerList():
     pass
 
 
+  def find(self, player_id):
+    return self.players[player_id]
+
+
   def update_player_file(self):
     pass
 
