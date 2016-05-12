@@ -54,15 +54,20 @@ class QuestionList():
     """
     self.questions = {}
     self.question_file = question_file
-    self.load_questions(question_file)
+    self.load_questions()
 
 
   def load_questions(self):
     """
     Load questions.
     """
-    with open(question_file) as quesitons:
-      question_tmp = json.load(quesitons)
+    with open(self.question_file) as questions:
+      questions = json.load(questions)
+
+    for q in questions:
+      self.questions[q['id']] = Question(qid=q['id'], content=q['content'], answer=q['answer'], score=q['score'], choices=q['choices'], choice_states=q['choice_states'], state=q['state'])
+
+    print("Questions loaded.")
 
 
   def find(self, question_id):
@@ -112,7 +117,7 @@ class Player():
 
 
 class PlayerList():
-  def __init__(self, n_player=4, player_file):
+  def __init__(self, player_file, n_player=4):
     """
     player list
     """
