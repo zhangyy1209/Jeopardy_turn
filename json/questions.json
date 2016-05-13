@@ -2,16 +2,16 @@
 	{
 		"id": 0,
 		"content": "sample question",
-		"answer": "sample answer",
+		"answer": 1,
 		"score": 100,
 		"choices": ["answer A", "answer B", "answer C", "answer D"],
 		"choice_states": [0, 0, 0, 0],
 		"state": 0
 	}, 
 	{
-		"id": 0,
+		"id": 1,
 		"content": "sample question",
-		"answer": "sample answer",
+		"answer": 2,
 		"score": 100,
 		"choices": ["answer A", "answer B", "answer C", "answer D"],
 		"choice_states": [0, 0, 0, 0],

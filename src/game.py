@@ -3,9 +3,11 @@ import pickle
 import os.path
 
 class Game():
-  def __init__(self, question_list, player_list):
+  def __init__(self, question_list, player_list, score_file, request_file):
     self.question_list = question_list
     self.player_list = player_list
+    self.score_file = score_file
+    self.request_file = request_file
 
 
   def reset(self):
@@ -14,20 +16,38 @@ class Game():
 
 
   def answer(self, player_id, question_id, choice_id):
-    player = self.player_list[player_id]
-    question = self.question_list[question_id]
+    print(self.question_list.questions.items())
+    player = self.player_list.players[player_id]
+    question = self.question_list.questions[question_id]
 
     question.state = 1
 
-    if question.answer == choice_id:
+    if question.aid == choice_id:
       player.update_score(question.score)
       question.state = 2
-      # self.output_right_request()
-      return True
+      str_output = "%d %d Home" % (question.qid, 1)
+      self.output_score()
+      self.output_request(str_output)
     else:
       player.update_score(-question.score)
-      # self.output_wrong_request()
-      return False
+      self.output_score()
+      str_output = "%d %d" % (question.qid, 0)
+      self.output_request(str_output)
+
+    self.player_list.dump_player_pickle()
+
+
+  def output_score(self):
+    scores = [p.score for p in self.player_list.players.values()]
+    str_scores = "%d %d %d %d" % tuple(scores)
+    with open("../status/" + self.score_file, "w") as output:
+      output.write(str_scores)
+
+
+  def output_request(self, str_output):
+    with open("../status/" + self.request_file, "w") as output:
+      output.write(str_output)
+
 
 
 class Question():
@@ -96,6 +116,11 @@ class QuestionList():
       self.questions = pickle.load(input_file)
 
 
+  def dump_questions_pickle(self):
+    with open("../pickle/" + self.pkl_file, "wb") as output_file:
+      pickle.dump(self.questions, output_file, pickle.HIGHEST_PROTOCOL)
+
+
   def reset(self):
     """
     Write updated questions to file.
@@ -104,8 +129,7 @@ class QuestionList():
     for q in self.questions.values():
       q.reset()
 
-    with open("../pickle/" + self.pkl_file, "wb") as output_file:
-      pickle.dump(self.questions, output_file, pickle.HIGHEST_PROTOCOL)
+    self.dump_questions_pickle()
 
 
 class Player():
@@ -161,11 +185,15 @@ class PlayerList():
       self.players = pickle.load(input_file)
 
 
+  def dump_player_pickle(self):
+    with open("../pickle/" + self.pkl_file, "wb") as output_file:
+      pickle.dump(self.players, output_file, pickle.HIGHEST_PROTOCOL)
+
+
   def reset(self):
     for p in self.players.values():
       p.reset()
 
-    with open("../pickle/" + self.pkl_file, "wb") as output_file:
-      pickle.dump(self.players, output_file, pickle.HIGHEST_PROTOCOL)
+    self.dump_player_pickle()
 
 
