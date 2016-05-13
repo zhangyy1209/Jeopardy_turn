@@ -1,5 +1,4 @@
 import sys
-import re
 from game import *
 
 players = PlayerList( "../json/players.json")
