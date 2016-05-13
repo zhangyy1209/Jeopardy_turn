@@ -5,7 +5,7 @@ import sys
 from game import *
 
 players = PlayerList( "../json/players.json")
-question_list = QuestionList("../json/questions.json")
+question_list = QuestionList("../json/game1.json")
 game = Game(question_list, players, "score", "status", "answered_id")
 
 option = sys.argv[1]

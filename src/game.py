@@ -62,10 +62,11 @@ class Game():
 
   def output_answered_questions(self):
     print(self.question_list.questions.keys())
-    answered_id = [qid for qid in self.question_list.questions.keys() if self.question_list.questions[qid].state != 0]
+    answered_id = [str(qid) for qid in self.question_list.questions.keys() if self.question_list.questions[qid].state != 0]
+    output_json = {"ans": answered_id}
     # str_output = ' '.join(map(str, answered_id))
     with open("../status/" + self.answered_file, "w") as output:
-      json.dump(answered_id, output)
+      json.dump(output_json, output, indent=4)
 
 
   def select(self, question_id):
@@ -118,8 +119,14 @@ class QuestionList():
     with open(self.question_file) as input_file:
       questions = json.load(input_file)
 
-    for q in questions:
-      self.questions[q['id']] = Question(qid=q['id'], aid=q['answer'], score=q['score'], state=q['state'])
+    # for q in questions:
+      # self.questions[q['id']] = Question(qid=q['id'], aid=q['answer'], score=q['score'], state=q['state'])
+
+    # for i in range(25):
+    for i in [0, 1, 5]:
+      q = questions[str(i)]
+      score = (i//5 + 1) * 100
+      self.questions[i] = Question(qid=i, aid=int(q['answer']), score=score)
 
     print("Questions loaded.")
 
