@@ -1,45 +1,242 @@
 {
-    "CategoryA": "Culture / History",
+    "CategoryA": "Turn History & Milestones ",
     "CategoryARows" : "0,5,10,15,20",
 
     "0": {
-          "question": "Where was the first Turn office located?",
+          "question": "What was the first inventory source integrated into the Turn platform?",
           "answers" : [
-				"Redwood City",
-          		"San Francisco",
-          		"Los Angeles"
+			"Rubicon",
+          		"RMX",
+          		"Pubmatic"
 		  ],
           "answer": "1"
     },
     "5": {
-          "question": "When was Turn incoporated?",
+          "question": "How much was turn.com domain bought for?",
           "answers" : [
-              "2005",
-              "2007",
-              "2008"
-          ],
-          "answer": "0"
-    },
-
-    "CategoryB": "Who am I ?",
-    "CategoryBRows" :  "1,6,11,16,21",
-
-    "1": {
-          "question": "Who has the most git commit in Turn Repo for month of May?",
-          "answers" : [
-              "JC",
-              "Alvin",
-              "Bhavin"
+              "1K",
+              "10K",
+              "100K"
           ],
           "answer": "2"
     },
+    "10": {
+          "question": "Kraft was our largest revenue client in 2015. How much revenue did they generate for Turn?",
+          "answers" : [
+              "25M",
+              "35M",
+              "50M"
+          ],
+          "answer": "2"
+    },
+    "15": {
+          "question": "What was the original company name before TURN?",
+          "answers" : [
+              "RTAS: Real-time Audience Syndication",
+              "NGOA: Next-Gen Online Advertiser Network",
+              "AAPN: Advanced Advertising Platform Solutions"
+          ],
+          "answer": "1"
+    },
+   "20": {
+          "question": "In 2009, what milestone did Turn hit?",
+          "answers" : [
+              "Reached 100 employees",
+              "Reached 1000 QPS",
+              "Opened 2nd office in RWC"
+          ],
+          "answer": "1"
+    },
+    "CategoryB": "Who am I ?  ",
+    "CategoryBRows" : "1,6,11,16,21",
 
-    "CategoryC": "People Stats",
+    "1": {
+          "question": "People at Turn referred to me as the King",
+          "answers" : [
+			"Trevor Diep",
+          		"Vishal Shah",
+          		"Marc Saba"
+		  ],
+          "answer": "2"
+    },
+    "6": {
+          "question": "I joined Turn in June 2011 and I reimburse you",
+          "answers" : [
+              "Ivan Kao",
+              "Mark Liao",
+              "Margaret Yam"
+          ],
+          "answer": "2"
+    },
+    "11": {
+          "question": "I worked at Cisco before joining Turn and I rocked at implementing PowerEdit",
+          "answers" : [
+              "Kunal Deshpande",
+              "Michael Vu",
+              "Ben Wang"
+          ],
+          "answer": "1"
+    },
+    "16": {
+          "question": "I directly manage the 70+ BDC tier1 support team members",
+          "answers" : [
+              "Kenny Szeto",
+              "Tim Giacomino",
+              "Miles Goldstein"
+          ],
+          "answer": "1"
+    },
+   "21": {
+          "question": "This datamine expert is both best dressed and into death metal",
+          "answers" : [
+              "Larry Lo",
+              "Max Knight",
+              "Navni Garg"
+          ],
+          "answer": "1"
+    },
+    "CategoryC": "People Stats  ",
     "CategoryCRows" : "2,7,12,17,22",
 
-    "CategoryD": "Turn Milestones",
+    "2": {
+          "question": "Who is the longest tenured engineer?",
+          "answers" : [
+			"RK",
+          		"Larry",
+          		"Menka"
+		  ],
+          "answer": "0"
+    },
+    "7": {
+          "question": "Who is the longest woman tenured Engineer?",
+          "answers" : [
+              "Annie",
+              "Menka",
+              "Hanna"
+          ],
+          "answer": "1"
+    },
+    "12": {
+          "question": "Who files the most TSE tickets?",
+          "answers" : [
+              "Product Managers",
+              "Miles Goldstein",
+              "Trevor Diep"
+          ],
+          "answer": "2"
+    },
+    "17": {
+          "question": "The first commit was done on Marc 22, 2005.  Who did it?",
+          "answers" : [
+              "Vishal Shah",
+              "Songting Chen",
+              "Zoran Dukic"
+          ],
+          "answer": "2"
+    },
+   "22": {
+          "question": "This datamine expert is both best dressed and into death metal",
+          "answers" : [
+              "Larry Lo",
+              "Max Knight",
+              "Navni Garg"
+          ],
+          "answer": "1"
+    },
+    "CategoryD": "Turn Engineering System",
     "CategoryDRows" : "3,8,13,18,23",
 
-    "CategoryE": "Turn Engineering",
-    "CategoryERows": "4,9,14,19,24"
+    "3": {
+          "question": "How many active (non-deleted) creatives are in the console?",
+          "answers" : [
+			"600K",
+			"900K",
+          		"1.4M"          		
+		  ],
+          "answer": "2"
+    },
+    "8": {
+          "question": "What percentage of active (non-deleted) creatives are video?",
+          "answers" : [
+              "0.5%",
+              "2%",
+              "5%"
+          ],
+          "answer": "1"
+    },
+    "13": {
+          "question": "Which Data Partner has the biggest taxonomy?",
+          "answers" : [
+              "Sojern",
+              "Signal - BrighTag",
+              "Akamai"
+          ],
+          "answer": "0"
+    },
+    "18": {
+          "question": "How many categories are in the biggest active segment?",
+          "answers" : [
+              "10846 categories",
+              "5787 categories",
+              "32932 categories"
+          ],
+          "answer": "0"
+    },
+   "23": {
+          "question": "Whatpercentage of segments created by users in 2016 were not used for targeting in Campaign Suite",
+          "answers" : [
+              "5%",
+              "11%",
+              "26%"
+          ],
+          "answer": "2"
+    },
+    "CategoryE": "Turn Engineering System",
+    "CategoryERows" : "4,9,14,19,24",
+
+    "4": {
+          "question": "How many countries are Turn advertisers from?",
+          "answers" : [
+			"27",
+			"37",
+          		"57"          		
+		  ],
+          "answer": "1"
+    },
+    "9": {
+          "question": "How many campaign suite beacons are there?",
+          "answers" : [
+              "88K",
+              "188K",
+              "388K"
+          ],
+          "answer": "1"
+    },
+    "14": {
+          "question": "How many currencies are used by advertisers in the Turn system?",
+          "answers" : [
+              "10",
+              "55",
+              "28"
+          ],
+          "answer": "2"
+    },
+    "19": {
+          "question": "How many Line items does the largest IO have?",
+          "answers" : [
+              "4389 Line items",
+              "15787 Line items",
+              "19580 Line items"
+          ],
+          "answer": "2"
+    },
+   "24": {
+          "question": "What is the maximum value (budget) you can set for an IO ",
+          "answers" : [
+              "1M",
+              "10M",
+              "25M"
+          ],
+          "answer": "2"
+    }
 }

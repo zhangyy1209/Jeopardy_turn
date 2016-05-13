@@ -16,7 +16,7 @@ if option == 'a':
   # the answer argument
   if len(args) < 3:
     raise ValueError("Usage: ./Jeopardy.py a Player_id Question_id Choice")
-  question_id = (ord(args[1][0]) - ord('a')) * 5 + int(args[1][1])
+  question_id = (ord(args[1][0]) - ord('a')) + int(args[1][1]) * 5
   player_id, choice_id = int(args[0]), ord(args[2]) - ord('a')
   print(player_id, question_id, choice_id)
   game.answer(player_id, question_id, choice_id)
@@ -25,7 +25,8 @@ elif option == 'r':
   print("Game reset done.")
 elif option == 's':
   # question_id = int(args[0])
-  question_id = (ord(args[0][0]) - ord('a')) * 5 + int(args[0][1])
+  question_id = (ord(args[0][0]) - ord('a')) + int(args[0][1]) * 5
+  print(question_id)
   game.select(question_id)
 elif option == 'h':
   game.home()

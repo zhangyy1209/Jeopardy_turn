@@ -122,8 +122,8 @@ class QuestionList():
     # for q in questions:
       # self.questions[q['id']] = Question(qid=q['id'], aid=q['answer'], score=q['score'], state=q['state'])
 
-    # for i in range(25):
-    for i in [0, 1, 5]:
+    for i in range(25):
+    # for i in [0, 1, 5]:
       q = questions[str(i)]
       score = (i//5 + 1) * 100
       self.questions[i] = Question(qid=i, aid=int(q['answer']), score=score)
