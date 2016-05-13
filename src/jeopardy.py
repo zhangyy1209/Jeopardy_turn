@@ -27,6 +27,8 @@ elif option == 's':
   # question_id = int(args[0])
   question_id = (ord(args[0][0]) - ord('a')) * 5 + int(args[0][1])
   game.select(question_id)
+elif option == 'h':
+  game.home()
 else:
   print("Usage: ./Jeopardy.py a Player_id Question_id Choice")
 
