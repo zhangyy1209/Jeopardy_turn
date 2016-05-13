@@ -3,16 +3,20 @@ import pickle
 import os.path
 
 class Game():
-  def __init__(self, question_list, player_list, score_file, request_file):
+  def __init__(self, question_list, player_list, score_file, request_file, answered_file):
     self.question_list = question_list
     self.player_list = player_list
     self.score_file = score_file
     self.request_file = request_file
+    self.answered_file = answered_file
 
 
   def reset(self):
     self.question_list.reset()
     self.player_list.reset()
+    self.output_score()
+    self.output_answered_questions()
+    self.output_request(-1, 0, 1)
 
 
   def answer(self, player_id, question_id, choice_id):
@@ -25,33 +29,39 @@ class Game():
     if question.aid == choice_id:
       player.update_score(question.score)
       question.state = 2
-      str_output = "%d,%d,Home" % (question.qid, 1)
-      self.output_score()
-      self.output_request(str_output)
+      self.output_request(question_id, 2, 1)
     else:
       player.update_score(-question.score)
-      self.output_score()
-      str_output = "%d,%d" % (question.qid, 0)
-      self.output_request(str_output)
+      self.output_request(question_id, 1, 0)
 
+    self.output_score()
+    self.output_answered_questions()
     self.player_list.dump_player_pickle()
 
 
   def output_score(self):
     scores = [p.score for p in self.player_list.players.values()]
-    str_scores = "%d,%d,%d,%d" % tuple(scores)
+    str_scores = "%d %d %d %d" % tuple(scores)
     with open("../status/" + self.score_file, "w") as output:
       output.write(str_scores)
 
 
-  def output_request(self, str_output):
+  def output_request(self, qid, state, home):
+    output_json = {"0": {"id": qid, "state": state, "home": home}}
     with open("../status/" + self.request_file, "w") as output:
+      json.dump(output_json, output, indent=4, sort_keys=False)
+
+
+  def output_answered_questions(self):
+    print(self.question_list.questions.keys())
+    answered_id = [qid for qid in self.question_list.questions.keys() if self.question_list.questions[qid].state != 0]
+    str_output = ' '.join(map(str, answered_id))
+    with open("../status/" + self.answered_file, "w") as output:
       output.write(str_output)
 
 
   def select(self, question_id):
-    str_output = str(question_id)
-    self.output_request(str_output)
+    self.output_request(question_id, 0, 0)
 
 
 class Question():

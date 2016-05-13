@@ -1,24 +1,24 @@
 [
 	{
-		"uid": 1,
+		"uid": 0,
 		"name": "John",
 		"score": 0
 	},
 	
 	{
-		"uid": 2,
+		"uid": 1,
 		"name": "Mike",
 		"score": 0
 	},
 
 	{
-		"uid": 3,
+		"uid": 2,
 		"name": "Jen",
 		"score": 0
 	},
 
 	{
-		"uid": 4,
+		"uid": 3,
 		"name": "Alice",
 		"score": 0
 	}
