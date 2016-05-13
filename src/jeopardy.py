@@ -23,6 +23,9 @@ if options.operation == 'answer':
 elif options.operation == 'start':
   game.reset()
   print("Game reset done.")
+elif options.operation == 'select':
+  question_id = int(args[0])
+  game.select(question_id)
 else:
   print("Usage: ./Jeopardy.py -o answer Player_id Question_id Choice_id")
 

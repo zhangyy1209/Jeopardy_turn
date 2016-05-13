@@ -49,6 +49,10 @@ class Game():
       output.write(str_output)
 
 
+  def select(self, question_id):
+    str_output = str(question_id)
+    self.output_request(str_output)
+
 
 class Question():
   def __init__(self, qid, aid, score, state=0):
