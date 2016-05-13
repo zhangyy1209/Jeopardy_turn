@@ -25,13 +25,13 @@ class Game():
     if question.aid == choice_id:
       player.update_score(question.score)
       question.state = 2
-      str_output = "%d %d Home" % (question.qid, 1)
+      str_output = "%d,%d,Home" % (question.qid, 1)
       self.output_score()
       self.output_request(str_output)
     else:
       player.update_score(-question.score)
       self.output_score()
-      str_output = "%d %d" % (question.qid, 0)
+      str_output = "%d,%d" % (question.qid, 0)
       self.output_request(str_output)
 
     self.player_list.dump_player_pickle()
@@ -39,7 +39,7 @@ class Game():
 
   def output_score(self):
     scores = [p.score for p in self.player_list.players.values()]
-    str_scores = "%d %d %d %d" % tuple(scores)
+    str_scores = "%d,%d,%d,%d" % tuple(scores)
     with open("../status/" + self.score_file, "w") as output:
       output.write(str_scores)
 
@@ -78,15 +78,6 @@ class Question():
     self.state = 0
 
 
-  def update_choice_state(self, choice_id):
-    """
-    Update the choice state of a question.
-    """
-
-    pass
-
-
-
 class QuestionList():
   def __init__(self, question_file):
     """
@@ -122,7 +113,7 @@ class QuestionList():
 
   def dump_questions_pickle(self):
     with open("../pickle/" + self.pkl_file, "wb") as output_file:
-      pickle.dump(self.questions, output_file, pickle.HIGHEST_PROTOCOL)
+      pickle.dump(self.questions, output_file, protocol=2)
 
 
   def reset(self):
@@ -191,7 +182,7 @@ class PlayerList():
 
   def dump_player_pickle(self):
     with open("../pickle/" + self.pkl_file, "wb") as output_file:
-      pickle.dump(self.players, output_file, pickle.HIGHEST_PROTOCOL)
+      pickle.dump(self.players, output_file, protocol=2)
 
 
   def reset(self):
